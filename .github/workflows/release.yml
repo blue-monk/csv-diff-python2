@@ -4,6 +4,7 @@ name: release
 on:
   release:
     types: [released]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -26,8 +27,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         # It seems that coverage6.0 has been released, and it resolves to 6.0, which causes an error in coverage-badge, so tentatively specifying the coverage version.
+        # In addition, coverage-badge1.0.2 seems to have dropped support for Python2.
         # pip install flake8 pytest pytest-cov coverage-badge
-        pip install flake8 pytest 'coverage>=5.5,<6' pytest-cov coverage-badge
+        pip install flake8 pytest 'coverage>=5.5,<6' pytest-cov coverage-badge==1.0.1
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Lint with flake8

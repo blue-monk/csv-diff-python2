@@ -73,7 +73,7 @@ def main():
 
 class App(type):
 
-    VERSION = '0.0.0'
+    VERSION = '1.0.0'
 
 
 class LoggingConfig(type):

@@ -2,6 +2,8 @@
 # csv-diff-python2
 
 [![Python Version](https://img.shields.io/badge/python-2.7-blue)](README.md/#herb-requirements)
+[![testing](https://github.com/blue-monk/csv-diff-python2/actions/workflows/testing.yml/badge.svg)](https://github.com/blue-monk/csv-diff-python2/actions/workflows/testing.yml)
+[![coverage](https://github.com/blue-monk/csv-diff-python2/blob/gh-pages/coverage.svg)](https://blue-monk.github.io/csv-diff-python2/)
 [![License](https://img.shields.io/github/license/blue-monk/csv-diff-python2)](LICENSE)
 
 
@@ -206,7 +208,7 @@ with differences  (!): 3 :-- Row Number Pairs -->: [(2, 3), (4, 4), (5, 5)]
 * For large amounts of data
 
   In the case of a horizontal report,  
-  it takes longer than a vertical report because all records are scanned in advance to collect information for report formatting.  
+  it takes longer than a vertical report because all lines are scanned in advance to collect information for report formatting.  
   For large amounts of data, consider vertical reports.
 
 ## :herb: Known Issues
@@ -218,6 +220,11 @@ with differences  (!): 3 :-- Row Number Pairs -->: [(2, 3), (4, 4), (5, 5)]
   the Japanese part will be displayed in UTF-8 byte string representation in the report.  
   For now, I'm not sure how to handle Japanese in Python2.  
   However, it seems that the difference judgment is performed without any problem.
+
+* *Workaround for only one line*
+
+    If the CSV file contains only one line, it will be recognized as a header.  
+    You need to specify the option `-H n` to be recognized as CSV without a header.
 
 
 ## :herb: Contributing
